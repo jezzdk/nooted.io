@@ -16,7 +16,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return Note::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();
+        return Note::where('user_id', auth()->user()->id)->with('notebook')->orderBy('created_at', 'DESC')->get();
     }
 
     /**
@@ -59,7 +59,7 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
+        return Note::where('id', $id)->first();
     }
 
     /**

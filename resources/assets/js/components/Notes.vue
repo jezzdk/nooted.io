@@ -16,7 +16,8 @@
         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" v-for="note in notes">
           <a class="note" v-link="{ name: 'note', params: { id: note.id } }">
             {{ note.title }}<br />
-            {{ note.content | truncate '20' }}
+            {{ note.content | truncate '20' }}<br /><br />
+            {{ note.notebook.name }}
           </a>
         </div>
 

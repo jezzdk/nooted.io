@@ -14608,15 +14608,26 @@ if (module.hot) {(function () {  module.hot.accept()
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    ready: function ready() {
-        console.log('Note ready');
-    }
+  data: function data() {
+    return {
+      title: '',
+      content: ''
+    };
+  },
+  ready: function ready() {
+    console.log('Note ready');
+
+    this.$http.get('/notes/' + this.$route.params.id).then(function (response) {
+      this.title = response.data.title;
+      this.content = response.data.content;
+    }.bind(this), function (response) {}.bind(this));
+  }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n  <section class=\"content-header\">\n      <h1>Note</h1>\n  </section>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n  <div style=\"background-color: #fff\">\n    <section class=\"content-header\">\n        <h1>{{ title }}</h1>\n        <hr>\n    </section>\n    <section class=\"content\">\n        {{{ content }}}\n    </section>\n  </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -14682,7 +14693,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n  <section class=\"content-header\">\n      <h1>Notes</h1>\n  </section>\n  <section class=\"content\">\n    <div class=\"row\">\n      <div class=\"col-xs-6\">\n        0 Notes\n      </div>\n      <div class=\"col-xs-6\">\n        <button type=\"button\" class=\"btn btn-primary pull-right\" v-link=\"{ path: '/create-note' }\">Create note</button>\n      </div>\n    </div>\n    <div class=\"row notes-list\">\n      <div class=\"col-xs-6 col-sm-4 col-md-3 col-lg-2\" v-for=\"note in notes\">\n        <a class=\"note\" v-link=\"{ name: 'note', params: { id: note.id } }\">\n          {{ note.title }}<br>\n          {{ note.content |&nbsp;truncate '20' }}\n        </a>\n      </div>\n\n    </div>\n  </section>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div>\n  <section class=\"content-header\">\n      <h1>Notes</h1>\n  </section>\n  <section class=\"content\">\n    <div class=\"row\">\n      <div class=\"col-xs-6\">\n        0 Notes\n      </div>\n      <div class=\"col-xs-6\">\n        <button type=\"button\" class=\"btn btn-primary pull-right\" v-link=\"{ path: '/create-note' }\">Create note</button>\n      </div>\n    </div>\n    <div class=\"row notes-list\">\n      <div class=\"col-xs-6 col-sm-4 col-md-3 col-lg-2\" v-for=\"note in notes\">\n        <a class=\"note\" v-link=\"{ name: 'note', params: { id: note.id } }\">\n          {{ note.title }}<br>\n          {{ note.content |&nbsp;truncate '20' }}<br><br>\n          {{ note.notebook.name }}\n        </a>\n      </div>\n\n    </div>\n  </section>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
