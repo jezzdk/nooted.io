@@ -1,2 +1,26 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.main-header .navbar .nav a.v-link-active {
+  background: rgba(0,0,0,0.1);
+  color: #f6f6f6;
+}
+
+.fade-transition {
+  animation-duration: .3s;
+}
+
+section.content > .row {
+  margin-bottom: 2rem;
+}
+
+.notes-list {
+  .note {
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,.3);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+    display: block;
+    height: 200px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+}

@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
+Route::auth();
+
+Route::get('/', ['middleware' => 'guest', function () {
     return view('welcome');
+
+    Route::auth();
+}]);
+
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', 'HomeController@index');
+
+    Route::resource('notebooks', 'NotebookController');
+    Route::resource('notes', 'NoteController');
+    Route::resource('tags', 'TagController');
+    Route::resource('files', 'FileController');
 });
