@@ -29,22 +29,7 @@
   export default {
     data: function() {
       return {
-        notes: [
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-          {title: 'Tester noter', id: 1},
-        ]
+        notes: []
       };
     },
     ready: function(){

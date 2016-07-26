@@ -14670,7 +14670,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   data: function data() {
     return {
-      notes: [{ title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }, { title: 'Tester noter', id: 1 }]
+      notes: []
     };
   },
   ready: function ready() {
