@@ -25,6 +25,10 @@ build:
         code: |
           echo "hello world!"
     - script:
+        name: composer install
+        code: |
+          composer install
+    - script:
         name: unit test
         code: |
-          phpunit
+          ./vendor/bin/phpunit
